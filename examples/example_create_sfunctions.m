@@ -14,6 +14,7 @@ filenames = {
     'D:\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_heartbeat.h';
     'D:\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_attitude.h';
     'D:\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_raw_imu.h';
+    'D:\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_raw_imu.h';
     };
 
 
