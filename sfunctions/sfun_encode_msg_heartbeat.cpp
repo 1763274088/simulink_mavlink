@@ -1,6 +1,6 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_encode' on 15-Nov-2017 16:48:02
+This file was automatically created by the Matlab function 'create_sfun_encode' on 06-Sep-2018 10:55:03
 as part of Simulink MAVLink library.
 */
 #define S_FUNCTION_NAME  sfun_encode_msg_heartbeat

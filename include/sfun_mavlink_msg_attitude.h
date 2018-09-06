@@ -1,10 +1,10 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_header' on 15-Nov-2017 16:48:07
+This file was automatically created by the Matlab function 'create_sfun_header' on 06-Sep-2018 10:55:08
 as part of Simulink MAVLink library.
 */
 
-#include "D:\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_attitude.h"
+#include "D:\000_simulink_mavlink-udp-git\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_attitude.h"
 #define BUS_NAME_ATTITUDE "mavlink_attitude_t"
 #define NFIELDS_BUS_ATTITUDE 7
 #define ENCODED_LEN_ATTITUDE (MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_ATTITUDE_LEN)

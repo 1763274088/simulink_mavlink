@@ -1,6 +1,6 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_decode' on 15-Nov-2017 16:48:07
+This file was automatically created by the Matlab function 'create_sfun_decode' on 06-Sep-2018 10:55:09
 as part of Simulink MAVLink library.
 */
 
@@ -13,7 +13,7 @@ as part of Simulink MAVLink library.
 #define SYS_ID 100
 #define COMP_ID 200
 
-#include "D:/simulink_mavlink/include/mavlink/v1.0/common/mavlink.h"
+#include "include/mavlink/v1.0/common/mavlink.h"
 
 #include "include/sfun_decode_mavlink.h"
 
