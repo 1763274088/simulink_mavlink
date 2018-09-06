@@ -1,6 +1,6 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_encode' on 06-Sep-2018 11:02:24
+This file was automatically created by the Matlab function 'create_sfun_encode' on 06-Sep-2018 13:25:16
 as part of Simulink MAVLink library.
 */
 #define S_FUNCTION_NAME  sfun_encode_msg_att_pos_mocap

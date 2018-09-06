@@ -23,7 +23,10 @@ filenames = {
     'D:\000_simulink_mavlink-udp-git\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_data_stream.h';
     'D:\000_simulink_mavlink-udp-git\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_request_data_stream.h';
     'D:\000_simulink_mavlink-udp-git\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_attitude_target.h';
-    'D:\000_simulink_mavlink-udp-git\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_position_target_local_ned.h'
+    'D:\000_simulink_mavlink-udp-git\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_position_target_local_ned.h';
+    'D:\000_simulink_mavlink-udp-git\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_rc_channels_raw.h';
+     'D:\000_simulink_mavlink-udp-git\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_rc_channels.h';
+     'D:\000_simulink_mavlink-udp-git\simulink_mavlink\include\mavlink\v1.0\common\mavlink_msg_rc_channels_scaled.h';
     };
 
 %% Create encoder s-functions
@@ -34,7 +37,6 @@ filenames = {
 for i = 1:length(filenames)
     create_sfun_encode(filenames{i});
 end
-
 
 %% Create decider s-function
 % Calling create_sfun_decode will creates buses, header files, s-function

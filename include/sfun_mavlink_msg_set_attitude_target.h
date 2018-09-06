@@ -1,6 +1,6 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_header' on 06-Sep-2018 11:02:29
+This file was automatically created by the Matlab function 'create_sfun_header' on 06-Sep-2018 13:25:24
 as part of Simulink MAVLink library.
 */
 
