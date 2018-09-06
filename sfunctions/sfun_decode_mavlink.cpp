@@ -1,6 +1,6 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_decode' on 06-Sep-2018 10:55:09
+This file was automatically created by the Matlab function 'create_sfun_decode' on 06-Sep-2018 11:02:29
 as part of Simulink MAVLink library.
 */
 
@@ -41,7 +41,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortDataType(S, 0, SS_UINT8);
     ssSetInputPortVectorDimension(S, 0, MAVLINK_MAX_PACKET_LEN);
 
-	if (!ssSetNumOutputPorts(S, 3)) return;
+	if (!ssSetNumOutputPorts(S, 11)) return;
 
 	#if defined(MATLAB_MEX_FILE)
 	if (ssGetSimMode(S) != SS_SIMMODE_SIZES_CALL_ONLY)
@@ -61,24 +61,96 @@ static void mdlInitializeSizes(SimStruct *S)
 		if (dataTypeIdReg2 == INVALID_DTYPE_ID) return;
 		ssSetOutputPortDataType(S, 2, dataTypeIdReg2);
 
+		DTypeId dataTypeIdReg3;
+		ssRegisterTypeFromNamedObject(S, BUS_NAME_SET_MODE, &dataTypeIdReg3);
+		if (dataTypeIdReg3 == INVALID_DTYPE_ID) return;
+		ssSetOutputPortDataType(S, 3, dataTypeIdReg3);
+
+		DTypeId dataTypeIdReg4;
+		ssRegisterTypeFromNamedObject(S, BUS_NAME_SET_ATTITUDE_TARGET, &dataTypeIdReg4);
+		if (dataTypeIdReg4 == INVALID_DTYPE_ID) return;
+		ssSetOutputPortDataType(S, 4, dataTypeIdReg4);
+
+		DTypeId dataTypeIdReg5;
+		ssRegisterTypeFromNamedObject(S, BUS_NAME_SET_POSITION_TARGET_LOCAL_NED, &dataTypeIdReg5);
+		if (dataTypeIdReg5 == INVALID_DTYPE_ID) return;
+		ssSetOutputPortDataType(S, 5, dataTypeIdReg5);
+
+		DTypeId dataTypeIdReg6;
+		ssRegisterTypeFromNamedObject(S, BUS_NAME_ATT_POS_MOCAP, &dataTypeIdReg6);
+		if (dataTypeIdReg6 == INVALID_DTYPE_ID) return;
+		ssSetOutputPortDataType(S, 6, dataTypeIdReg6);
+
+		DTypeId dataTypeIdReg7;
+		ssRegisterTypeFromNamedObject(S, BUS_NAME_DATA_STREAM, &dataTypeIdReg7);
+		if (dataTypeIdReg7 == INVALID_DTYPE_ID) return;
+		ssSetOutputPortDataType(S, 7, dataTypeIdReg7);
+
+		DTypeId dataTypeIdReg8;
+		ssRegisterTypeFromNamedObject(S, BUS_NAME_REQUEST_DATA_STREAM, &dataTypeIdReg8);
+		if (dataTypeIdReg8 == INVALID_DTYPE_ID) return;
+		ssSetOutputPortDataType(S, 8, dataTypeIdReg8);
+
+		DTypeId dataTypeIdReg9;
+		ssRegisterTypeFromNamedObject(S, BUS_NAME_ATTITUDE_TARGET, &dataTypeIdReg9);
+		if (dataTypeIdReg9 == INVALID_DTYPE_ID) return;
+		ssSetOutputPortDataType(S, 9, dataTypeIdReg9);
+
+		DTypeId dataTypeIdReg10;
+		ssRegisterTypeFromNamedObject(S, BUS_NAME_POSITION_TARGET_LOCAL_NED, &dataTypeIdReg10);
+		if (dataTypeIdReg10 == INVALID_DTYPE_ID) return;
+		ssSetOutputPortDataType(S, 10, dataTypeIdReg10);
+
 	}
 	#endif
 
 	ssSetBusOutputObjectName(S, 0, (void *) BUS_NAME_HEARTBEAT);
 	ssSetBusOutputObjectName(S, 1, (void *) BUS_NAME_ATTITUDE);
 	ssSetBusOutputObjectName(S, 2, (void *) BUS_NAME_RAW_IMU);
+	ssSetBusOutputObjectName(S, 3, (void *) BUS_NAME_SET_MODE);
+	ssSetBusOutputObjectName(S, 4, (void *) BUS_NAME_SET_ATTITUDE_TARGET);
+	ssSetBusOutputObjectName(S, 5, (void *) BUS_NAME_SET_POSITION_TARGET_LOCAL_NED);
+	ssSetBusOutputObjectName(S, 6, (void *) BUS_NAME_ATT_POS_MOCAP);
+	ssSetBusOutputObjectName(S, 7, (void *) BUS_NAME_DATA_STREAM);
+	ssSetBusOutputObjectName(S, 8, (void *) BUS_NAME_REQUEST_DATA_STREAM);
+	ssSetBusOutputObjectName(S, 9, (void *) BUS_NAME_ATTITUDE_TARGET);
+	ssSetBusOutputObjectName(S, 10, (void *) BUS_NAME_POSITION_TARGET_LOCAL_NED);
 
 	ssSetOutputPortWidth(S, 0, 1);
 	ssSetOutputPortWidth(S, 1, 1);
 	ssSetOutputPortWidth(S, 2, 1);
+	ssSetOutputPortWidth(S, 3, 1);
+	ssSetOutputPortWidth(S, 4, 1);
+	ssSetOutputPortWidth(S, 5, 1);
+	ssSetOutputPortWidth(S, 6, 1);
+	ssSetOutputPortWidth(S, 7, 1);
+	ssSetOutputPortWidth(S, 8, 1);
+	ssSetOutputPortWidth(S, 9, 1);
+	ssSetOutputPortWidth(S, 10, 1);
 
 	ssSetBusOutputAsStruct(S, 0, 1);
 	ssSetBusOutputAsStruct(S, 1, 1);
 	ssSetBusOutputAsStruct(S, 2, 1);
+	ssSetBusOutputAsStruct(S, 3, 1);
+	ssSetBusOutputAsStruct(S, 4, 1);
+	ssSetBusOutputAsStruct(S, 5, 1);
+	ssSetBusOutputAsStruct(S, 6, 1);
+	ssSetBusOutputAsStruct(S, 7, 1);
+	ssSetBusOutputAsStruct(S, 8, 1);
+	ssSetBusOutputAsStruct(S, 9, 1);
+	ssSetBusOutputAsStruct(S, 10, 1);
 
 	ssSetOutputPortBusMode(S, 0, SL_BUS_MODE);
 	ssSetOutputPortBusMode(S, 1, SL_BUS_MODE);
 	ssSetOutputPortBusMode(S, 2, SL_BUS_MODE);
+	ssSetOutputPortBusMode(S, 3, SL_BUS_MODE);
+	ssSetOutputPortBusMode(S, 4, SL_BUS_MODE);
+	ssSetOutputPortBusMode(S, 5, SL_BUS_MODE);
+	ssSetOutputPortBusMode(S, 6, SL_BUS_MODE);
+	ssSetOutputPortBusMode(S, 7, SL_BUS_MODE);
+	ssSetOutputPortBusMode(S, 8, SL_BUS_MODE);
+	ssSetOutputPortBusMode(S, 9, SL_BUS_MODE);
+	ssSetOutputPortBusMode(S, 10, SL_BUS_MODE);
 
     ssSetNumSampleTimes(S, 1);
 
@@ -124,6 +196,14 @@ static void mdlStart(SimStruct *S)
 	encode_businfo_heartbeat(S, busInfo, OFFSET_HEARTBEAT);
 	encode_businfo_attitude(S, busInfo, OFFSET_ATTITUDE);
 	encode_businfo_raw_imu(S, busInfo, OFFSET_RAW_IMU);
+	encode_businfo_set_mode(S, busInfo, OFFSET_SET_MODE);
+	encode_businfo_set_attitude_target(S, busInfo, OFFSET_SET_ATTITUDE_TARGET);
+	encode_businfo_set_position_target_local_ned(S, busInfo, OFFSET_SET_POSITION_TARGET_LOCAL_NED);
+	encode_businfo_att_pos_mocap(S, busInfo, OFFSET_ATT_POS_MOCAP);
+	encode_businfo_data_stream(S, busInfo, OFFSET_DATA_STREAM);
+	encode_businfo_request_data_stream(S, busInfo, OFFSET_REQUEST_DATA_STREAM);
+	encode_businfo_attitude_target(S, busInfo, OFFSET_ATTITUDE_TARGET);
+	encode_businfo_position_target_local_ned(S, busInfo, OFFSET_POSITION_TARGET_LOCAL_NED);
 
     ssSetUserData(S, busInfo);
 } /* end mdlStart */

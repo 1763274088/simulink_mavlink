@@ -1,9 +1,9 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_encode' on 06-Sep-2018 11:02:18
+This file was automatically created by the Matlab function 'create_sfun_encode' on 06-Sep-2018 11:02:23
 as part of Simulink MAVLink library.
 */
-#define S_FUNCTION_NAME  sfun_encode_msg_heartbeat
+#define S_FUNCTION_NAME  sfun_encode_msg_set_position_target_local_ned
 #define S_FUNCTION_LEVEL 2
 
 #include "simstruc.h"
@@ -13,7 +13,7 @@ as part of Simulink MAVLink library.
 #define COMP_ID 200
 
 #include "include/mavlink/v1.0/common/mavlink.h"
-#include "include/sfun_mavlink_msg_heartbeat.h"
+#include "include/sfun_mavlink_msg_set_position_target_local_ned.h"
 
 /* Function: mdlInitializeSizes ================================================
  * REQUIRED METHOD
@@ -39,7 +39,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortRequiredContiguous(S, 0, 1);
 
     DTypeId BusType;
-	ssRegisterTypeFromNamedObject(S, BUS_NAME_HEARTBEAT, &BusType);
+	ssRegisterTypeFromNamedObject(S, BUS_NAME_SET_POSITION_TARGET_LOCAL_NED, &BusType);
     if(BusType == INVALID_DTYPE_ID) return;
     ssSetInputPortDataType(S, 0, BusType);
     ssSetBusInputAsStruct(S, 0, 1);
@@ -47,7 +47,7 @@ static void mdlInitializeSizes(SimStruct *S)
 
     if (!ssSetNumOutputPorts(S, 1)) return;
 
-	ssSetOutputPortWidth(S, 0, ENCODED_LEN_HEARTBEAT);
+	ssSetOutputPortWidth(S, 0, ENCODED_LEN_SET_POSITION_TARGET_LOCAL_NED);
     ssSetOutputPortDataType(S, 0, SS_UINT8);
 
     ssSetNumSampleTimes(S, 1);
@@ -85,12 +85,12 @@ static void mdlInitializeSampleTimes(SimStruct *S)
 #define MDL_START
 static void mdlStart(SimStruct *S)
 {
-	int_T *busInfo = (int_T *) malloc(2*NFIELDS_BUS_HEARTBEAT*sizeof(int_T));
+	int_T *busInfo = (int_T *) malloc(2*NFIELDS_BUS_SET_POSITION_TARGET_LOCAL_NED*sizeof(int_T));
     if(busInfo == NULL) {
       ssSetErrorStatus(S, "Memory allocation failure");
       return;
     }
-	encode_businfo_heartbeat(S, busInfo, 0);
+	encode_businfo_set_position_target_local_ned(S, busInfo, 0);
 
 } /* end mdlStart */
 
@@ -106,7 +106,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const char *uvec = (const char *) ssGetInputPortSignal(S, 0);
     uint8_T *yvec = (uint8_T *) ssGetOutputPortSignal(S, 0);
     int_T* busInfo = (int_T *) ssGetUserData(S);
-	encode_vector_heartbeat(uvec, busInfo, yvec, 0);
+	encode_vector_set_position_target_local_ned(uvec, busInfo, yvec, 0);
 }
 
 /* Function: mdlTerminate ======================================================

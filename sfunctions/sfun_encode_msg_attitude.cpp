@@ -1,6 +1,6 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_encode' on 06-Sep-2018 10:55:06
+This file was automatically created by the Matlab function 'create_sfun_encode' on 06-Sep-2018 11:02:19
 as part of Simulink MAVLink library.
 */
 #define S_FUNCTION_NAME  sfun_encode_msg_attitude
