@@ -1,6 +1,6 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_encode' on 06-Sep-2018 13:25:23
+This file was automatically created by the Matlab function 'create_sfun_encode' on 08-Sep-2018 10:51:51
 as part of Simulink MAVLink library.
 */
 #define S_FUNCTION_NAME  sfun_encode_msg_rc_channels_scaled

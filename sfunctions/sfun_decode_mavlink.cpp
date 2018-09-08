@@ -1,6 +1,6 @@
 /*
 DO NOT EDIT.
-This file was automatically created by the Matlab function 'create_sfun_decode' on 06-Sep-2018 13:25:25
+This file was automatically created by the Matlab function 'create_sfun_decode' on 08-Sep-2018 10:51:54
 as part of Simulink MAVLink library.
 */
 
@@ -41,7 +41,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortDataType(S, 0, SS_UINT8);
     ssSetInputPortVectorDimension(S, 0, MAVLINK_MAX_PACKET_LEN);
 
-	if (!ssSetNumOutputPorts(S, 14)) return;
+	if (!ssSetNumOutputPorts(S, 15)) return;
 
 	#if defined(MATLAB_MEX_FILE)
 	if (ssGetSimMode(S) != SS_SIMMODE_SIZES_CALL_ONLY)
@@ -116,6 +116,11 @@ static void mdlInitializeSizes(SimStruct *S)
 		if (dataTypeIdReg13 == INVALID_DTYPE_ID) return;
 		ssSetOutputPortDataType(S, 13, dataTypeIdReg13);
 
+		DTypeId dataTypeIdReg14;
+		ssRegisterTypeFromNamedObject(S, BUS_NAME_COMMAND_LONG, &dataTypeIdReg14);
+		if (dataTypeIdReg14 == INVALID_DTYPE_ID) return;
+		ssSetOutputPortDataType(S, 14, dataTypeIdReg14);
+
 	}
 	#endif
 
@@ -133,6 +138,7 @@ static void mdlInitializeSizes(SimStruct *S)
 	ssSetBusOutputObjectName(S, 11, (void *) BUS_NAME_RC_CHANNELS_RAW);
 	ssSetBusOutputObjectName(S, 12, (void *) BUS_NAME_RC_CHANNELS);
 	ssSetBusOutputObjectName(S, 13, (void *) BUS_NAME_RC_CHANNELS_SCALED);
+	ssSetBusOutputObjectName(S, 14, (void *) BUS_NAME_COMMAND_LONG);
 
 	ssSetOutputPortWidth(S, 0, 1);
 	ssSetOutputPortWidth(S, 1, 1);
@@ -148,6 +154,7 @@ static void mdlInitializeSizes(SimStruct *S)
 	ssSetOutputPortWidth(S, 11, 1);
 	ssSetOutputPortWidth(S, 12, 1);
 	ssSetOutputPortWidth(S, 13, 1);
+	ssSetOutputPortWidth(S, 14, 1);
 
 	ssSetBusOutputAsStruct(S, 0, 1);
 	ssSetBusOutputAsStruct(S, 1, 1);
@@ -163,6 +170,7 @@ static void mdlInitializeSizes(SimStruct *S)
 	ssSetBusOutputAsStruct(S, 11, 1);
 	ssSetBusOutputAsStruct(S, 12, 1);
 	ssSetBusOutputAsStruct(S, 13, 1);
+	ssSetBusOutputAsStruct(S, 14, 1);
 
 	ssSetOutputPortBusMode(S, 0, SL_BUS_MODE);
 	ssSetOutputPortBusMode(S, 1, SL_BUS_MODE);
@@ -178,6 +186,7 @@ static void mdlInitializeSizes(SimStruct *S)
 	ssSetOutputPortBusMode(S, 11, SL_BUS_MODE);
 	ssSetOutputPortBusMode(S, 12, SL_BUS_MODE);
 	ssSetOutputPortBusMode(S, 13, SL_BUS_MODE);
+	ssSetOutputPortBusMode(S, 14, SL_BUS_MODE);
 
     ssSetNumSampleTimes(S, 1);
 
@@ -234,6 +243,7 @@ static void mdlStart(SimStruct *S)
 	encode_businfo_rc_channels_raw(S, busInfo, OFFSET_RC_CHANNELS_RAW);
 	encode_businfo_rc_channels(S, busInfo, OFFSET_RC_CHANNELS);
 	encode_businfo_rc_channels_scaled(S, busInfo, OFFSET_RC_CHANNELS_SCALED);
+	encode_businfo_command_long(S, busInfo, OFFSET_COMMAND_LONG);
 
     ssSetUserData(S, busInfo);
 } /* end mdlStart */
